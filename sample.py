@@ -6,15 +6,15 @@ w2v = Word2vec()
 params = {
 			'sg': 1,
 			'size': 10,
-			'min_count': 1,
+			'min_count': 100,
 			'window': 10,
 			'hs': 1,
 			'negative': 0
 		}
 
-# 
+# If you have only plain-text as input file and you'd like to create new model, like this.
 results = w2v.sepWordBySpace('path/to/inputfile', 'path/to/sepalatedfile to save')\
-			.createModel('', params)\
+			.createModel('path/to/modelfile to save', params)\
 			.getCosSimilarities('your keyword', '', 100)\
 			.getResult()
 
