@@ -90,13 +90,13 @@ class Word2vec:
 	"""
 		cos類似度取得
 	"""
-	def getCosSimilarities(self, word, modelfilepath='', topn=10):
+	def getCosSimilarities(self, posword, negword,  modelfilepath='', topn=10):
 		if modelfilepath != '':
 			model = word2vec.Word2Vec.load(modelfilepath)
 		else:
 			model = self.getModel()
 
-		self._result = model.most_similar(positive=word, topn=topn)
+		self._result = model.most_similar(positive=posword, negative=negword, topn=topn)
 		return self
 		
 

@@ -15,11 +15,11 @@ params = {
 # If you have only plain-text as input file and you'd like to create new model, like this.
 results = w2v.sepWordBySpace('path/to/inputfile', 'path/to/sepalatedfile to save')\
 			.createModel('path/to/modelfile to save', params)\
-			.getCosSimilarities('your keyword', '', 100)\
+			.getCosSimilarities(['your positive keywords'], ['your negative keywords'], '', 100)\
 			.getResult()
 
 # Or using exist models, like below.
-#results = w2v.getCosSimilarities('your keyword', 'path/to/model', 100).getResult()
+#results = w2v.getCosSimilarities(['your positive keyword'], ['your negative keywords'], 'path/to/model', 100).getResult()
 
 for result in results:
 	print(result[0], '\t', result[1])
